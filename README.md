@@ -133,7 +133,7 @@ brew install git
   
 <br>
 
-- 커밋
+- 커밋(commit)
   - staging area에 있는 파일들을 버전별로 repository(저장소)에 저장함
   - commit할 때 -m 뒤에 메시지 입력 가능함
   
@@ -153,8 +153,10 @@ brew install git
   ```zsh
   git status
   ```
-
+  
 <br>
+
+### Commit(커밋) 관련 명령어
 
 - 커밋 기록 확인
   - `--graph` 옵션 넣으면 그래프로 그려줌
@@ -168,4 +170,34 @@ brew install git
   git log --pretty=oneline
   git log --all --oneline
   git log --all --oneline --graph
+  ```
+  
+<br>
+
+- 바로 전 commit과 현재 코드의 차이점 비교
+  - `git diff`는 엔터키나 스페이스바 변동사항도 다 알려줘서 그대로 사용을 잘 안함
+  - 깃 로그를 통해 과거의 특정 커밋과 현재 파일을 비교할 때는 커밋id를 명시해줌
+  - 특정 커밋id를 2개적으면 두개를 비교함
+  
+  <br>
+  
+  ```zsh
+  git diff
+  git diff 커밋id
+  git diff 커밋id1 커밋id2
+  ```
+
+<br>
+
+- 바로 전 commit과 현재 코드의 차이점 비교2
+  - `git diff`보다 시인성 좋게 만들어줌
+  - 기본 사용법은 `git diff`와 동일
+  - 하지만 요새 이런 비교 명령어보단 IDE에 있는 부가기능이 더 잘되어있음(ex.VSCode의 Git Graph 등)
+  
+  <br>
+  
+  ```zsh
+  git difftool
+  git difftool 커밋id
+  git difftool 커밋id1 커밋id2
   ```
