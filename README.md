@@ -2,6 +2,9 @@
 
 ### 구조
 
+
+<image width='400' src="https://user-images.githubusercontent.com/80039556/186343640-0e81a5b1-4151-450c-9f9c-9bdc81ae7464.jpeg" />
+
 [ 작업폴더 ] --`git add`--> [ Staging Area ] --`git commit`--> [ Repository ]
 
 - Staging Area : 커밋할 파일들을 골라놓는 곳
@@ -108,6 +111,7 @@ brew install git
 
 <br>
 
+
 - 특정 파일 스테이징(staging)
   - commit 할 파일들을 정해서 staging area에 넣음
   
@@ -155,6 +159,8 @@ brew install git
   ```
   
 <br>
+
+---
 
 ### Commit(커밋) 관련 명령어
 
@@ -204,7 +210,43 @@ brew install git
 
 <br>
 
-### branch(브랜치) 관련 명령어
+---
+
+### branch(브랜치) 관련
+
+- **브랜치 생성**
+
+  <image width='400' src="https://user-images.githubusercontent.com/80039556/186344788-4c474b2f-6c3a-4e47-a1b6-78af3dfe34ce.jpeg" />
+
+- **3-way merge** (merge의 기본 동작방식)
+
+  <image width='400' src="https://user-images.githubusercontent.com/80039556/186345139-09d951eb-43a9-4b79-92a0-e10f745cca97.jpeg" />
+
+- **fast-forward merge**
+  - 새로운 브랜치에만 commit이 있고, 기준이 되는 브랜치에는 신규 commit이 없는 경우 실행되는 merge 방식
+  - 싫으면 `git merge --no--ff 브랜치명` 으로 강제 3-way merge 가능
+  - merge 전
+
+    <image width='400' src="https://user-images.githubusercontent.com/80039556/186345886-1ad620b9-9bfe-4000-9691-e85228c367f5.jpeg" />
+
+  - merge 후
+
+    <image width='400' src="https://user-images.githubusercontent.com/80039556/186346795-bbda19b3-145b-4deb-ab10-0a2e45169372.jpeg" />
+
+- **rebase and merge**
+  - rebase(리베이스) : 시작점을 다른 commit으로 옮기는 행위
+  - 신규 브랜치 시작점을 main 브랜치 최근 commit으로 옮긴 다음 fast-forward merge 하는 것
+
+    <image width='400' src="https://user-images.githubusercontent.com/80039556/186347808-db188636-905a-455e-9ec1-359eeac55d24.jpeg" />
+
+- **squash and merge**
+  - 3-way merge는 여러 브랜치를 사용했을 때 매우 복잡함
+  - main 브랜치 git log 출력하면 모든 commit 내역이 나와 보기 힘듬
+  - 위 단점을 개선한 것이 squash merge
+
+    <image width='400' src="https://user-images.githubusercontent.com/80039556/186349142-b21f9999-0ff4-4206-9e11-fa14b2cfa810.jpeg" />
+  - commit 2-1과 2-2 내용들이 commit4로 합쳐져서 나타남
+  - rebase는 새 브랜치 커밋내역을 한줄로 만들어주고, squash는 합쳐서 하나로 만들어준다
 
 - 브랜치 생성
   - 프로젝트 사본을 만드는 것
