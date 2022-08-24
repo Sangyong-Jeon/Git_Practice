@@ -201,3 +201,43 @@ brew install git
   git difftool 커밋id
   git difftool 커밋id1 커밋id2
   ```
+
+<br>
+
+### branch(브랜치) 관련 명령어
+
+- 브랜치 생성
+  - 프로젝트 사본을 만드는 것
+  
+  <br>
+  
+  ```zsh
+  git branch 브랜치이름
+  ```
+
+<br>
+
+- 브랜치 이동
+  - 예전엔 `git checkout 브랜치명`을 입력했음
+  - 현재 브랜치가 어딘지 알고싶으면 `git status` 입력
+  - 브랜치 리스트를 알고싶으면 `git branch` 입력
+  
+  <br>
+  
+  ```zsh
+  git switch 브랜치이름
+  git checkout 브랜치이름
+  ```
+
+<br>
+
+- 브랜치 합치기
+  - main 브랜치에 새로만든 브랜치를 합치고 싶으면 main 이동 후 merge 입력
+  - 각 브랜치에서 동일 파일을 수정해서 충돌 일어나면 HEAD가 현재 브랜치 파일내용이고, 수정 후 해당 파일 스테이징하여 커밋하면 완료
+  
+  <br>
+  
+  ```zsh
+  git switch main
+  git merge 새로만든 브랜치명
+  ```
