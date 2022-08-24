@@ -283,3 +283,47 @@ brew install git
   git switch main
   git merge 새로만든 브랜치명
   ```
+
+<br>
+
+- 브랜치 삭제
+  - 병합 완료된 브랜치는 `-d`
+  - 병합하지 않은 브랜치 삭제시에는 `-D`
+  
+  <br>
+  
+  ```zsh
+  git branch -d 브랜치명
+  git branch -D 브랜치명
+  ```
+
+<br>
+
+- rebase and merge (리베이스)
+  - 새 브랜치 이동 -> git rebase main -> 새 브랜치가 main 브랜치 끝으로 이동완료 -> fast-forward merge
+  - 아래 코드 순서대로 입력하면 됨
+  
+  <br>
+  
+  ```zsh
+  git switch 새 브랜치명
+  git rebase main
+  
+  git switch main
+  git merge 새 브랜치명
+  ```
+
+<br>
+
+- squash and merge
+  - 3-way merge의 내역들은 매우 복잡하고 보기 힘듬
+  - 불필요한 커밋내역까지 다 보여짐
+  - 위 단점을 개선한 것으로, 새 브랜치 커밋내역을 합쳐서 기준 브랜치에 하나로 만들어줌
+  - 아래 코드를 순서대로 입력하면 main브랜치에서 test브랜치를 squash merge를 한다
+  <br>
+  
+  ```zsh
+  git switch main
+  git merge --squash 새브랜치명
+  git commit -m '메시지'
+  ```
