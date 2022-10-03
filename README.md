@@ -135,6 +135,14 @@ brew install git
   git add .
   ```
   
+  - 스테이징된 특정 파일 취소
+
+  <br>
+  
+  ```zsh
+  git restore --staged 파일명
+  ```
+  
 <br>
 
 - 커밋(commit)
@@ -209,6 +217,57 @@ brew install git
   ```
 
 <br>
+
+- 파일 복구하기
+  - 특정 파일 하나를 최근 commit 상태 파일로 되돌리기
+
+  <br>
+  
+  ```zsh
+  git restore 파일명
+  ```
+  
+  - 특정 파일 하나를 특정 commit 시점의 상태로 되돌리기
+
+  <br>
+  
+  ```zsh
+  git restore --source 커밋아이디 파일명
+  ```
+
+<br>
+
+- 특정 커밋 삭제하기
+  - 특정 커밋 시점의 파일들은 삭제되지만 커밋했던 내역은 기록된다. 또한 이 커밋을 취소했다는 내역도 남는다.
+  - 만약 commit1 ~ 3까지 내역이 있을 때, commit2를 취소한다면 다음과 같이 내역이 남는다.
+  - commit1 -> commit2 -> commit3 -> commit4(commit2 내용 삭제됨)
+
+  <br>
+  
+  ```zsh
+  git revert 커밋아이디 여러개가능
+  ```
+  
+  - 최근 commit 취소
+
+  <br>
+  
+  ```zsh
+  git revert HEAD
+  ```
+  
+<br>
+
+- 특정 커밋이 생성되는 시점으로 되돌아가기
+  - `--hard` 옵션을 사용한다면 특정 커밋 이후의 커밋들은 내역까지 전부 삭제됨.
+  - `--soft` 옵션을 사용한다면 특정 커밋 이후의 커밋들은 스테이징된 상태로 남아있음
+  - `--mixed` 옵션을 사용한다면 특정 커밋 이후의 커밋들은 스테이징이 되지 않은 상태로 파일이 남아있음
+
+  <br>
+  
+  ```zsh
+  git reset --hard 커밋아이디
+  ```
 
 ---
 
